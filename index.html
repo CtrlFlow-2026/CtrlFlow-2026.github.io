@@ -1,9 +1,321 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CtrlFlow</title>
+    <style>
+
+        .main {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            /*height: 350vh;*/
+        }
+
+        .top-title {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .code-paper-link {
+            width: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: row;
+            margin: 0 auto;
+
+        }
+
+        .btn {
+            width: 130px;
+            height: 57px;
+            border-radius: 10px;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            background: linear-gradient(to right top, #111214, #2e3233, #838484, #b2b3b2, #9d9f98);
+            background-size: 200% 200%;
+            transition: all 0.6s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .btn:hover {
+            background-position: 100% 100%;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            color: #f0f0f0;
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .env-video {
+            width: 85%;
+            /*height: 500px;*/
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            background-color: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            display: block;
+        }
+
+        .mo-inn {
+            margin: 0 auto;
+            width: 85%;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .overall {
+            width: 85%;
+            height: 500px;
+            margin: 0 auto;
+        }
+
+        .overall img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .exp {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .env-show {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .env-show .env-line {
+            width: 85%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .env-show .env-line img {
+            width: 90%;
+        }
+
+        .env-show .env-line .env-item {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .result {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .des {
+           font-size: 25px;
+            text-align: justify
+        }
+
+        .detail {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .main-result {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            margin-top: 50px
+        }
+
+        .main-result img {
+            width: 40%;
+        }
+
+    </style>
+</head>
 <body>
+<div class="main">
+    <div class="top-title">
+        <h1 style="font-size: 50px">Controllable Flow Matching for Online Reinforcement Learning</h1>
+    </div>
+    <div class="code-paper-link">
+        <button class="btn">
+            Code
+        </button>
+        <button class="btn">
+            Paper
+        </button>
+    </div>
+    <div style="margin-top: 40px;"></div>
+    <div class="env-video" id="envVideo">
 
-<h1 style="color:red;">我的第一个标题</h1>
+    </div>
+    <div style="margin-top: 60px;"></div>
+    <div class="mo-inn">
+        <h2 style="font-size: 40px;text-align: center">Motivation and Innovation</h2>
+        <div style="width: 100%;">
+            <div style="display: flex;flex-direction: row;align-items: center;margin-left: -10px;margin-bottom: 10px">
+                <img src="icons/inspire.png" style="width: 50px;height: 50px;" alt="inspire">
+                <span style="padding-left: 10px;font-size:35px;font-weight: bolder;">Motivation</span>
+            </div>
+            <div class="des">
+                Conditional Flow Matching (CFM) models, particularly those based on continuous normalized flows,
+                have demonstrated remarkable success in image synthesis. Recently, researchers have begun adapting CFM models
+                for decision-making tasks, leveraging their strong planning capabilities in offline reinforcement learning (RL).
+                However, their potential in online RL settings remains largely unexplored. Model-based RL (MBRL) methods always face the challenge of
+                accumulation errors when they try to rollouts. These errors arise because small inaccuracies in the
+                learned dynamics model propagate over time, leading to increasingly unrealistic predictions.
+                However, if we bypass step-by-step prediction of the environment dynamics and instead directly
+                generate full trajectories, we can avoid the problem of error accumulation.
+            </div>
+        </div>
+        <div style="width: 100%;margin-top: 15px;">
+            <div style="display: flex;flex-direction: row;align-items: center;margin-left: -10px;margin-bottom: 10px">
+                <img src="icons/innovation.png" style="width: 50px;height: 50px;" alt="innovation">
+                <span style="padding-left: 10px;font-size:35px;font-weight: bolder;">Innovation</span>
+            </div>
+            <div class="des">
+                <div class="detail">
+                    <img src="icons/1.png" style="width: 50px;height: 50px;" alt="1">
+                    <div style="padding-left: 10px">
+                        We propose the <span style="font-weight: bolder">first</span> flow matching method for <span style="font-weight: bolder">online RL</span> that works on the <span style="font-weight: bolder">trajectory-level</span> data generation,
+                        effectively solving the error accumulation problem inherent in step-by-step generation approaches.
+                    </div>
+                </div>
+                <div class="detail" style="margin-top: 10px;">
+                    <img src="icons/2.png" style="width: 50px;height: 50px;" alt="2">
+                    <div style="padding-left: 10px">
+                        Through the novel introduction of a <span style="font-weight: bolder">Gramian matrix</span> control module, our method significantly enhances the model's adaptability to Markovian trajectory distributions while ensuring efficient and <span style="font-weight: bolder">stable generation</span>.
+                    </div>
+                </div>
+                <div class="detail" style="margin-top: 10px;">
+                    <img src="icons/3.png" style="width: 50px;height: 50px;" alt="3">
+                    <div style="padding-left: 10px">
+                        We design an <span style="font-weight: bolder">energy-based trajectory optimization</span> method that achieves aligned generation of <span style="font-weight: bolder">high-return</span> trajectories through guidance vector fields.
+                    </div>
+                </div>
+                <div style="padding: 10px">
+                    We evaluate <span style="font-weight: bolder">CtrlFlow</span> on MuJoCo benchmark tasks and all experiments followed the Dyna-style paradigm. The results demonstrate that our method exhibits superior performance and <span style="font-weight: bolder">better convergence</span> than compared MBRL approaches.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 100px;"></div>
+    <div class="overall">
+        <img src="images/overall.png" alt="overall">
+    </div>
+    <div style="margin-top: 30px;"></div>
+    <div style="width: 85%;font-size: 35px;margin: 0 auto;text-align: center">
+        <span>The overall of our proposed CtrlFlow.</span>
+    </div>
+    <div style="margin-top: 100px"></div>
+    <div class="exp">
+        <div class="env-show">
+            <h2 style="font-size: 40px">Evaluation Environment</h2>
+            <div class="env-line">
+                <div class="env-item">
+                    <img src="images/hopper.gif" alt="hopper">
+                    <span style="margin-top: 20px;font-size: 30px">Hopper</span>
+                </div>
+                <div class="env-item">
+                    <img src="images/walker2d.gif" alt="walker2d">
+                    <span style="margin-top: 20px;font-size: 30px">Walker2d</span>
+                </div>
+                <div class="env-item">
+                    <img src="images/half_cheetah.gif" alt="halfCheetah">
+                    <span style="margin-top: 20px;font-size: 30px">HalfCheetah</span>
+                </div>
+                <div class="env-item">
+                    <img src="images/inverted_pendulum.gif" alt="invertedPendulum">
+                    <span style="margin-top: 20px;font-size: 30px">InvertedPendulum</span>
+                </div>
+            </div>
+        </div>
+        <div class="result">
+            <h2 style="text-align: center;font-size: 40px;">Experimental Result</h2>
+            <div class="main-result">
+                <img src="./results/main/Hopper.png" alt="">
+                <img src="./results/main/Walker2d.png" alt="">
+            </div>
+            <div class="main-result">
+                <img src="./results/main/HalfCheetah.png" alt="">
+                <img src="./results/main/InvertedPendulum.png" alt="">
+            </div>
+            <div style="margin: 30px 0 30px 0;font-size: 30px;text-align: center">
+                <span>The performance of CtrlFlow compared with model-based and free (SAC) methods.</span>
+            </div>
+        </div>
+    </div>
+</div>
 
-<p>我的第一个段落。</p>
+<script>
+    const videoData = [
+        {id: "video_hopper", src: "./videos/Hopper-v4_20000.mp4"},
+        {id: "video_walker", src: "./videos/Walker2d-v4_20000.mp4"},
+        {id: "video_halfCheetah", src: "./videos/HalfCheetah-v4_20000.mp4"},
+        {id: "video_invertedPendulum", src: "./videos/InvertedPendulum-v4_2000.mp4"},
+    ]
 
+    function createAutoPlayVideo(videoInfo) {
+        const wrapper = document.createElement('div');
+        wrapper.className = "video-wrapper";
+
+        const video = document.createElement('video');
+        video.id = videoInfo.id;
+        video.autoplay = true;
+        video.loop = true;
+        video.muted = true;
+        video.playsInline = true;
+
+        const source = document.createElement('source');
+        source.src = videoInfo.src;
+        source.type = "video/mp4";
+        video.appendChild(source);
+        wrapper.appendChild(video);
+        return wrapper;
+    }
+
+    videoData.forEach((videoInfo) => {
+        const videoElement = createAutoPlayVideo(videoInfo);
+        document.getElementById("envVideo").appendChild(videoElement);
+
+        const video = videoElement.querySelector("video");
+        video.addEventListener("error", () => {
+            console.error(`video load error ${videoInfo.id}`);
+        });
+    });
+
+
+</script>
 </body>
 </html>
